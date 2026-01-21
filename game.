@@ -1,0 +1,144 @@
+import random
+
+# Daftar makanan dan clue-nya (dengan clue umum dan clue spesifik)
+makanan_dan_clue = {
+    "rendang": {
+        "umum": "Makanan berkuah santan gurih yang asalnya dari Sumatera Barat, biasanya menggunakan daging sapi, berwarna coklat kemerahan, dan sangat pedas.",
+        "spesifik": "💡 CLUE SPESIFIK: Masakan ini dibuat dengan proses memasak lama hingga kuah mengering, mengandung santan, cabai merah, dan rempah-rempah. Asal: Minangkabau, Sumatera Barat. Rasa: Gurih, pedas, dan kaya rempah."
+    },
+    "nasi goreng": {
+        "umum": "Makanan nasi yang digoreng dengan berbagai bumbu, telur, dan lauk pauk, makanan nasional Indonesia.",
+        "spesifik": "💡 CLUE SPESIFIK: Nasi yang dimasak dengan cara digoreng bersama telur, bawang, kecap manis, cabai, dan berbagai isi seperti ayam atau udang. Ciri khas: Berwarna kecoklatan, gurih, dan enak."
+    },
+    "soto ayam": {
+        "umum": "Sup tradisional Indonesia yang terbuat dari kaldu ayam dengan rempah-rempah dan kunyit, berwarna kuning keemasan.",
+        "spesifik": "💡 CLUE SPESIFIK: Sup hangat dengan bahan dasar ayam, kunyit, kemiri, bawang merah, dan bawang putih. Penampilan: Kuning keemasan. Rasa: Gurih, sedikit pedas, dan aromatis dengan rasa rempah yang kuat."
+    },
+    "lumpia": {
+        "umum": "Makanan ringan berisi daging dan sayuran yang dibungkus kulit tipis, digoreng hingga kuning kecoklatan.",
+        "spesifik": "💡 CLUE SPESIFIK: Makanan dengan kulit luar yang renyah dan emas, isi daging cincang dengan sayuran seperti kecambah dan lobak. Asal: China tetapi populer di Indonesia. Rasa: Gurih dan tekstur: Renyah di luar, lembut di dalam."
+    },
+    "sate": {
+        "umum": "Daging tusuk yang ditusuk dan dipanggang, disajikan dengan saus kacang atau kecap manis.",
+        "spesifik": "💡 CLUE SPESIFIK: Daging (ayam, sapi, atau kambing) ditusuk dengan tusuk kayu/bambu, dipanggang, dan dilumuri bumbu. Penampilan: Daging gosong kecoklatan. Disajikan dengan saus kacang atau kecap manis. Rasa: Gurih dan berasap."
+    },
+    "gado-gado": {
+        "umum": "Salad sayuran tradisional dengan saus kacang yang kental, makanan vegetarian populer di Indonesia.",
+        "spesifik": "💡 CLUE SPESIFIK: Perpaduan sayuran rebus (wortel, kacang panjang, tauge, dsb) dan tahu goreng, ditambah saus kacang yang kental dari kacang tanah. Penampilan: Berwarna-warni dari berbagai sayuran. Rasa: Gurih dari kacang dengan sentuhan pedas."
+    },
+    "bakso": {
+        "umum": "Sup berisi bola daging dalam kuah, makanan street food yang sangat populer di Indonesia.",
+        "spesifik": "💡 CLUE SPESIFIK: Bola daging (dari daging sapi) dalam kuah kaldu yang gurih, disajikan dengan mie atau tanpa mie. Penampilan: Bola daging coklat dalam kuah jernih atau agak keruh. Rasa: Gurih, empuk, dan hangat."
+    },
+    "perkedel": {
+        "umum": "Makanan berbahan utama kentang yang digoreng, makanan pendamping nasi yang populer.",
+        "spesifik": "💡 CLUE SPESIFIK: Kentang yang dilumatkan, dicampur telur dan bawang, dibentuk bulat, dan digoreng hingga kuning kecoklatan. Penampilan: Bulat emas dengan tekstur luar yang renyah. Rasa: Gurih dan lembut di dalam."
+    },
+    "martabak": {
+        "umum": "Makanan lezat yang terbuat dari adonan berisi daging atau coklat, kemudian dilipat dan digoreng.",
+        "spesifik": "💡 CLUE SPESIFIK: Adonan tipis yang diisi daging cincang, telur, dan sayuran (atau coklat dan kacang untuk versi manis), dilipat menjadi persegi dan digoreng. Penampilan: Persegi dengan permukaan berlubang kecil-kecil. Rasa: Gurih dan empuk di dalam dengan sisi luar yang renyah."
+    },
+    "tahu goreng": {
+        "umum": "Makanan dari tahu yang digoreng hingga berwarna kuning keemasan, dihidangkan dengan berbagai saus.",
+        "spesifik": "💡 CLUE SPESIFIK: Tahu putih yang dipotong dan digoreng dalam minyak panas hingga berwarna kuning emas dan tekstur luar renyah. Penampilan: Kubus atau balok emas dengan permukaan yang bergelembung. Rasa: Gurih, renyah di luar, lembut di dalam."
+    }
+}
+
+def main_game():
+    print("=" * 70)
+    print("SELAMAT DATANG DI GAME TEBAK MAKANAN INDONESIA!")
+    print("=" * 70)
+    print("\nPetunjuk Bermain:")
+    print("1. Program akan memilih satu makanan Indonesia secara acak")
+    print("2. Anda akan diberikan clue untuk menebak makanan tersebut")
+    print("3. Ketikkan nama makanan yang Anda tebak")
+    print("4. Jika benar, Anda akan menang!")
+    print("5. Jika terlalu sulit, ketik 'menyerah' untuk menyerah!")
+    print("6. Jika salah, akan ada clue yang lebih detail dan spesifik!\n")
+    
+    # Memilih makanan secara acak
+    makanan_rahasia = random.choice(list(makanan_dan_clue.keys()))
+    clue_data = makanan_dan_clue[makanan_rahasia]
+    
+    # Hitung jumlah huruf dan kata
+    jumlah_huruf = len(makanan_rahasia.replace(" ", ""))
+    jumlah_kata = len(makanan_rahasia.split())
+    
+    print("=" * 70)
+    print("CLUE MAKANAN:")
+    print(f"{clue_data['umum']}")
+    print("-" * 70)
+    print(f"📊 Jumlah kata: {jumlah_kata} | Jumlah huruf: {jumlah_huruf}")
+    print("=" * 70)
+    print()
+    
+    # Loop untuk menebak
+    kesempatan = 0
+    clue_diberikan = False
+    clue_count = 0
+    
+    # List clue alternatif yang bervariasi
+    clue_alternatif = [
+        f"💡 Makanan ini terdiri dari {jumlah_kata} kata dan {jumlah_huruf} huruf",
+        f"💡 Coba pikirkan makanan dari daerah Indonesia yang terkenal",
+        f"💡 Perhatikan deskripsi tentang tekstur, rasa, dan cara penyajiannya",
+        f"💡 Makanan ini sering dimakan dan disukai banyak orang di Indonesia"
+    ]
+    
+    while True:
+        kesempatan += 1
+        tebakan = input(f"Tebakan ke-{kesempatan} (atau ketik 'menyerah'): ").strip().lower()
+        
+        # Opsi menyerah
+        if tebakan == "menyerah":
+            print()
+            print("=" * 70)
+            print("😢 ANDA MENYERAH!")
+            print(f"Jawaban yang benar adalah: {makanan_rahasia.upper()}")
+            print(f"Anda melakukan {kesempatan - 1} tebakan sebelum menyerah.")
+            print("=" * 70)
+            print()
+            return False
+        
+        if tebakan == makanan_rahasia:
+            print()
+            print("🎉 " * 15)
+            print("SELAMAT!! KAMU BERHASIL! 🎉")
+            print(f"Makanan yang benar adalah: {makanan_rahasia.upper()}")
+            print(f"Anda berhasil menebak dalam {kesempatan} kesempatan!")
+            print("🎉 " * 15)
+            return True
+        else:
+            print(f"❌ Salah! '{tebakan}' bukan jawaban yang benar.")
+            
+            # Berikan clue spesifik saat terjawab salah
+            if not clue_diberikan:
+                print(clue_data['spesifik'])
+                print(f"📊 HINT: Jumlah kata: {jumlah_kata} | Jumlah huruf: {jumlah_huruf}")
+                clue_diberikan = True
+            else:
+                # Tampilkan clue bervariasi agar tidak monoton
+                if clue_count < len(clue_alternatif):
+                    print(clue_alternatif[clue_count])
+                    clue_count += 1
+                else:
+                    print(f"💡 CLUE ULANG: {clue_data['umum']}")
+                print(f"📊 HINT: Jumlah kata: {jumlah_kata} | Jumlah huruf: {jumlah_huruf}")
+            
+            print("Coba lagi!\n")
+
+# Main Program
+if __name__ == "__main__":
+    while True:
+        hasil = main_game()
+        
+        while True:
+            main_lagi = input("\nApakah ingin bermain lagi? (y/n): ").lower()
+            if main_lagi == 'y':
+                print("\n")
+                break
+            elif main_lagi == 'n':
+                print("\n👋 Terima kasih telah bermain! Sampai jumpa lagi!")
+                exit()
+            else:
+                print("❌ Input tidak valid. Silakan masukkan 'y' atau 'n'.\n")
